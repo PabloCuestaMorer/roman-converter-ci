@@ -36,8 +36,9 @@ jobs:
           npm install puppeteer
           npm install --save-dev qunit
           npm install --save-dev qunit-puppeteer
-      - name: Test
-        run: npx qunit-puppeteer test.html
+          - name: Test
+          run: node test-runner.js
+
 
   deploy:
     environment:
