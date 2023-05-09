@@ -19,27 +19,24 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
-
+  
 jobs:
-
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # Runs a single command using the runners shell
       - name: Set-up Node
         uses: actions/setup-node@v2
         with: 
-         node-version: '16'
+          node-version: '16'
       - name: Install Dependencies
         run: | 
           npm install puppeteer
           npm install --save-dev qunit
           npm install --save-dev qunit-puppeteer
-          - name: Test
-          run: node test-runner.js
-
-
+      - name: Test
+        run: node test-runner.js
+        
   deploy:
     environment:
       name: github-pages
