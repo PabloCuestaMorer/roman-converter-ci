@@ -33,10 +33,11 @@ jobs:
          node-version: 16.x
       - name: Install Dependencies
         run: | 
-          npm install --save-dev node-qunit-phantomjs
+          npm install puppeteer
           npm install --save-dev qunit
+          npm install --save-dev qunit-puppeteer
       - name: Test
-        run: node_modules/node-qunit-phantomjs/bin/node-qunit-phantomjs test.html 
+        run: npx qunit-puppeteer test.html
 
   deploy:
     environment:
