@@ -1,3 +1,12 @@
+// wrapping the functions to export them as a module
+if (typeof module !== "undefined") {
+  module.exports = {
+    convertRomanToInteger,
+    convertIntegerToRoman,
+  };
+}
+
+
 // Constants for the literals
 const INVALID_ROMAN = "Please enter a valid roman";
 const INVALID_INTEGER = "Please enter a valid integer";
