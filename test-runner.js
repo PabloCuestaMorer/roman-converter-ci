@@ -2,11 +2,18 @@ const puppeteer = require("puppeteer");
 const { spawn } = require("child_process");
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
+
   const page = await browser.newPage();
 
-  page.on("console", (msg) => console[msg._type](msg._text));
-
+  page.on("console", (msg) => {
+    if (msg.type() === "log" || msg.type() === "error" || msg.type() === "assert") {
+      console.log(msg.text());
+    }
+  });
   await page.goto(`file://${__dirname}/test.html`);
 
   await page.waitForFunction(
