@@ -15,6 +15,7 @@ function init() {
 
   modeCheckbox.addEventListener('change', function(e) {
     header.innerHTML = getModeTitle(e.target.checked);
+    gtag('event', 'change', { 'event_category' : 'Checkbox', 'event_label' : 'Mode Change' });
   });
 
   const getModeTitle = function(integerToRoman) {
@@ -35,6 +36,7 @@ function init() {
     } else {
       alert(convertion.message);
     }
+    gtag('event', 'click', { 'event_category' : 'Button', 'event_label' : 'Convert' });
   });
 
 }
