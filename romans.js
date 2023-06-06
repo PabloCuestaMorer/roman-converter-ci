@@ -1,13 +1,8 @@
+/* global gtag */
 // Constants for the literals
 const INVALID_ROMAN = 'Please enter a valid roman';
 const INVALID_INTEGER = 'Please enter a valid integer';
 const OUT_OF_RANGE = 'Out of range (1-3999)';
-
-function callGtag() {
-  if (typeof gtag === 'function') {
-    gtag.apply(null, arguments);
-  }
-}
 
 function init() { 
   
